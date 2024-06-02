@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    stream:
+      function:
+        definition: orderEventSupplier;handlePaymentEvent
+      bindings:
+        orderEventSupplier-out-0:
+          destination: order-event
+        handlePaymentEvent-in-0:
+          destination: payment-event
+
+
+
+server:
+  port: 8182
