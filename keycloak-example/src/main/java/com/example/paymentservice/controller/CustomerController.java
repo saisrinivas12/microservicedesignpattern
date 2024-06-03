@@ -19,13 +19,13 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @RolesAllowed("admin")
+    @RolesAllowed("ADMIN")
     @GetMapping("/getCustomers")
     public ResponseEntity<List<Customer>>getAllCustomers(){
         List<Customer> customers = customerService.getAllCustomers();
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(customers);
     }
-    @RolesAllowed("user")
+    @RolesAllowed("USER")
     @GetMapping("/getCustomerById/{customerId}")
     public ResponseEntity<Customer>getCustomerById(@PathVariable(name="customerId")Integer customerId){
         Customer customer= customerService.getCustomerById(customerId);
